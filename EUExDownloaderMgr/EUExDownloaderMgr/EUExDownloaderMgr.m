@@ -28,7 +28,6 @@
 }
 
 -(void)dealloc{
-	NSLog(@"EUExDownloaderMgr dealloc retain count is %d",[self retainCount]);
 	if (downObjDict) {
 		for (EUExDownload *dObj in [downObjDict allValues]) {
 			if (dObj) {
@@ -54,12 +53,9 @@
 		EUExDownload *downloadObj = [[EUExDownload alloc] initWithUExObj:self];
 		downloadObj.opID = [NSNumber numberWithInt:[inOpId intValue]];
 		downloadObj.downFlag = YES;
-        NSLog(@"downloadObj retain 1 is %d",[downloadObj retainCount]);
 		[downObjDict setObject:downloadObj forKey:inOpId];
-        NSLog(@"downloadObj retain 2 is %d",[downloadObj retainCount]);
-        //		NSLog(@"create success after SELF COUNT = %d",[self retainCount]);
         [downloadObj release];
-        NSLog(@"downloadObj retain 3 is %d",[downloadObj retainCount]);
+ 
 		[self jsSuccessWithName:@"uexDownloaderMgr.cbCreateDownloader" opId:[inOpId intValue] dataType:UEX_CALLBACK_DATATYPE_INT intData:UEX_CSUCCESS];
 	}
 }
@@ -187,7 +183,6 @@
 		}
 		[downObjDict removeAllObjects];
 	}
-	//ZDCCNSLog(@"EUExDownloaderMgr retain count is %d",[self retainCount]);
 }
 
 @end
