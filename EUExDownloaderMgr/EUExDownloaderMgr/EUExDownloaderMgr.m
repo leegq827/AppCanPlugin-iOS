@@ -152,7 +152,7 @@
 }
 
 -(void)closeDownloader:(NSMutableArray *)inArguments{
-	NSLog(@"[EUExDownLoaderMgr closeDownloader]");
+
 	NSString *inOpId = [inArguments objectAtIndex:0];
 	if (inOpId) {
 		//关闭操作
